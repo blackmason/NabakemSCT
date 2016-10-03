@@ -1,0 +1,48 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" charset="utf-8" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/Common/Styles/MainStyle.css" />
+    <link rel="stylesheet" type="text/css" href="~/Common/Styles/BbsStyle.css" />
+    <link rel="stylesheet" href="~/Common/Plugins/DaumEditor/css/editor.css" type="text/css" charset="utf-8" />
+    <script src="~/Common/Plugins/DaumEditor/js/editor_loader.js?environment=development" type="text/javascript" charset="utf-8"></script>
+    <title>SCT</title>
+</head>
+<body>
+    <div id="container">
+        <div id="top-navi">
+            <ul class="top_navi_left">
+                <li><a href="/Main/Index">첫화면</a></li>
+            </ul>
+            <ul class="top_navi_right">
+                <li><a href="/Admin/Summary">관리자</a></li>
+                <li>회원가입</li>
+                <li><a href="/Authorize/Login">로그인</a></li>
+            </ul>
+        </div>
+        <div id="search-area">
+            <input type="text" id="search-key" name="searchKey" />
+        </div>
+        <div id="main-navi">
+            <ul id="main-navi-list">
+                <li>회사소개</li>
+                <li>제품소개</li>
+                <li>견적요청</li>
+                <li>제품문의</li>
+                <a href="/BBS/Notice/List"><li>공지사항</li></a>
+            </ul>
+        </div>
+        <div id="body-area">
+            <div id="contents">
+                @RenderBody()
+            </div>
+        </div>
+        <div id="footer"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+﻿
+/* 왼쪽 사이드바 */
+#side-navi {
+    float: left;
+    width: 15%;
+    min-height: 800px;
+    border-right: 1px solid #ccc;
+}
+#label {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 18px;
+    border-bottom: 4px solid #C5081C;
+    background-color: #eee;
+}
+.main_menus {
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    color: #eee;
+    border-bottom: 1px solid #eee;
+    background-color: #213478;
+}
+.sub_menus {
+    line-height: 30px;
+    text-align: center;
+    list-style: none;
+    background-color: #eee;
+    font-size: 14px;
+}
+.sub_menus li {
+    border-bottom: 1px solid #ccc;
+}
+
+/* 메뉴관리 */
+.tbl_list {
+    margin: 20px 30px;
+    width: 80%;
+    text-align: center;
+    border-collapse: collapse;
+}
+.tbl_list tr {
+    border-bottom: 1px solid #ccc;
+}
+.tbl_list tr:nth-child(1) {
+    border-bottom: 2px solid #ccc;
+}
+.tbl_list tr:hover {
+    background-color: #f0f0f0;
+}
+.tbl_list th {
+    height: 40px;
+    background-color: #eee;
+}
+.tbl_list td {
+    height: 30px;
+}
+.tbl_list td:nth-child(4){
+    width: 30%;
+}
+#menus-form {
+    margin: 10px 30px 20px;
+    width: 80%;
+    display: inline-block;
+    border-collapse: collapse;
+    font-size: 11px;
+}
+#menus-form tr {
+    border: 1px solid #ccc;
+}
+#menus-form th {
+    padding: 5px;
+    width: 100px;
+    background-color: #eee;
+}
+.txt_box {
+    padding: 0 3px;
+    height: 25px;
+    border: none;
+}
+.btn_group {
+    margin: -10px 30px 20px;
+    width: 60%;
+    text-align: right;
+}
+.btn_set {
+    padding: 5px 8px;
+}

@@ -1,0 +1,79 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" charset="utf-8" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/Common/Styles/MainStyle.css" />
+    <link rel="stylesheet" type="text/css" href="~/Common/Styles/BbsStyle.css" />
+    <link rel="stylesheet" type="text/css" href="~/Common/Styles/AdminStyle.css" />
+    <link rel="stylesheet" href="~/Common/Plugins/DaumEditor/css/editor.css" type="text/css" charset="utf-8" />
+    <script src="~/Common/Plugins/DaumEditor/js/editor_loader.js?environment=development" type="text/javascript" charset="utf-8"></script>
+    <script src="~/Common/Plugins/jquery-1.11.3.min.js"></script>
+    <title>SCT</title>
+</head>
+<body>
+    <div id="container">
+        <div id="top-navi">
+            <ul class="top_navi_left">
+                <a href="/Main/Index"><li>첫화면</li></a>
+            </ul>
+            <ul class="top_navi_right">
+                <li>회원가입</li>
+                <a href="/Authorize/Login"><li>로그인</li></a>
+            </ul>
+        </div>
+        <div id="main-navi">
+            <ul id="main-navi-list">
+                <li>회사소개</li>
+                <li>제품소개</li>
+                <li>견적요청</li>
+                <li>제품문의</li>
+                <a href="/BBS/Notice/List"><li>공지사항</li></a>
+            </ul>
+        </div>
+        <div id="body-area">
+            <div id="side-navi">
+                <div id="label">관리자메뉴</div>
+                <div id="accordion">
+                    <div class="main_menus">제품관리</div>
+                    <div>
+                        <ul class="sub_menus">
+                            <li>제품목록</li>
+                            <li>제품추가</li>
+                            <li>제품수정</li>
+                        </ul>
+                    </div>
+                    <div class="main_menus">메뉴관리</div>
+                    <div>
+                        <ul class="sub_menus">
+                            <li><a href="/Admin/Menu">메뉴목록</a></li>
+                        </ul>
+                    </div>
+                    <div class="main_menus">게시판관리</div>
+                    <div>
+                        <ul class="sub_menus">
+                            <li>글목록</li>
+                            <li>공지추가</li>
+                        </ul>
+                    </div>
+                    <div class="main_menus">사용자관리</div>
+                    <div>
+                        <ul class="sub_menus">
+                            <li>사용자목록</li>
+                            <li>사용자추가</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="contents">
+                @RenderBody()
+            </div>
+        </div>
+        <div id="footer"></div>
+    </div>
+</body>
+</html>
