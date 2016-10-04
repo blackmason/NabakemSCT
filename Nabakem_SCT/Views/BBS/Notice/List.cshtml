@@ -3,7 +3,7 @@
     Layout = "~/Views/_Layouts/MainLayout.cshtml";
 }
 
-<h3>@ViewBag.Title</h3>
+<h3>공지사항</h3>
 <div class="bbs_wrapper">
     @*<a href="/Customer/Notice/Write"><span class="btn_bbs_span">Write</span></a>*@
 </div>
@@ -16,7 +16,7 @@
         <th>작성날짜</th>
     </tr>
 
-    @*@foreach (var item in Model)
+    @foreach (var item in Model)
     {
         if (@Model.Count < 1)
         {
@@ -31,7 +31,7 @@
                 <td>@item.Created</td>
             </tr>
         }
-    }*@
+    }
 </table>
 
 <div class="bbs_wrapper">
@@ -39,7 +39,7 @@
         <input type="text" name="searchKey" class="search_key" />
         <input type="button" class="btn_search" value="검색" />
     </div>
-    <a href="/BBS/Notice/Write"><span class="btn_bbs_span">Write</span></a>
+    @*<a href="/BBS/Notice/Write"><span class="btn_bbs_span">Write</span></a>*@
 </div>
 <br />
 <div class="bbs_wrapper">

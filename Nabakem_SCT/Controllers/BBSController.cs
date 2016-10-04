@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nabakem_SCT.Models.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,21 +15,30 @@ namespace Nabakem_SCT.Controllers
         public ActionResult Notice(string type, string id)
         {
             string addr = null;
+            BoardHelper helper;
 
-            switch (type)
+            if ("List" == type)
             {
-                case "Write":
-                    addr = "Notice/Write";
-                    break;
-                case "List":
-                    addr = "Notice/List";
-                    break;
-                default:
-                    addr = "Notice/" + id;
-                    break;
+                addr = "Notice/List";
+                helper = new BoardHelper();
+                var result = helper.GetAllContents();
+                
+                return View(addr, result);
             }
-
-            return View(addr);
+            else if ("Write" == type)
+            {
+                addr = "Notice/Write";
+                return View(addr);
+            }
+            else if("View" == type && id != null)
+            {
+                addr = "Notice/View/" + id;
+                return View(addr);
+            }
+            else
+            {
+                return View("Error");
+            }
         }
         /*
          * 제품문의

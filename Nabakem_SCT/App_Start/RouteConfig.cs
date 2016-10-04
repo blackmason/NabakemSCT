@@ -15,8 +15,8 @@ namespace Nabakem_SCT
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Main", action = "Index", id = UrlParameter.Optional }
+                url: "{controller}/{action}/{type}/{id}",
+                defaults: new { controller = "Main", action = "Index", type = UrlParameter.Optional, id = UrlParameter.Optional }
             );
         }
     }

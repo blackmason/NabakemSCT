@@ -18,9 +18,16 @@ namespace Nabakem_SCT.Controllers
             return View();
         }
 
-        public ActionResult NoticeAdd()
+        public ActionResult Notice(string type)
         {
-            return RedirectToAction("Notice/Write", "BBS");
+            if ("Write" == type)
+            {
+                return RedirectToAction("Notice/Write","BBS");
+            }
+            else
+            {
+                return RedirectToAction("Notice/List","BBS");
+            }
         }
 
         public ActionResult Menus()
