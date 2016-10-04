@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta name="viewport" charset="utf-8" content="width=device-width" />
-    <link rel="stylesheet" type="text/css" href="~/Common/Styles/MainStyle.css" />
+    @*<link rel="stylesheet" type="text/css" href="~/Common/Styles/MainStyle.css" />*@
     <link rel="stylesheet" type="text/css" href="~/Common/Styles/BbsStyle.css" />
     <link rel="stylesheet" type="text/css" href="~/Common/Styles/AdminStyle.css" />
     <link rel="stylesheet" href="~/Common/Plugins/DaumEditor/css/editor.css" type="text/css" charset="utf-8" />
@@ -35,43 +35,41 @@
                 <a href="/BBS/Notice/List"><li>공지사항</li></a>
             </ul>
         </div>
-        <div id="body-area">
-            <div id="side-navi">
-                <div id="label">관리자메뉴</div>
-                <div id="accordion">
-                    <div class="main_menus">제품관리</div>
-                    <div>
-                        <ul class="sub_menus">
-                            <li>제품목록</li>
-                            <li>제품추가</li>
-                            <li>제품수정</li>
-                        </ul>
-                    </div>
-                    <div class="main_menus">메뉴관리</div>
-                    <div>
-                        <ul class="sub_menus">
-                            <li><a href="/Admin/Menu">메뉴목록</a></li>
-                        </ul>
-                    </div>
-                    <div class="main_menus">게시판관리</div>
-                    <div>
-                        <ul class="sub_menus">
-                            <li>글목록</li>
-                            <li>공지추가</li>
-                        </ul>
-                    </div>
-                    <div class="main_menus">사용자관리</div>
-                    <div>
-                        <ul class="sub_menus">
-                            <li>사용자목록</li>
-                            <li>사용자추가</li>
-                        </ul>
-                    </div>
+        <div id="side-navi">
+            <div id="label">관리자메뉴</div>
+            <div id="accordion">
+                <div class="main_menus">제품관리</div>
+                <div>
+                    <ul class="sub_menus">
+                        <li>제품목록</li>
+                        <li>제품추가</li>
+                        <li>제품수정</li>
+                    </ul>
+                </div>
+                <div class="main_menus">메뉴관리</div>
+                <div>
+                    <ul class="sub_menus">
+                        <li><a href="/Admin/Menus">메뉴목록</a></li>
+                    </ul>
+                </div>
+                <div class="main_menus">게시판관리</div>
+                <div>
+                    <ul class="sub_menus">
+                        <li>글목록</li>
+                        <li><a href="/Admin/NoticeAdd">공지추가</a></li>
+                    </ul>
+                </div>
+                <div class="main_menus">사용자관리</div>
+                <div>
+                    <ul class="sub_menus">
+                        <li>사용자목록</li>
+                        <li>사용자추가</li>
+                    </ul>
                 </div>
             </div>
-            <div id="contents">
-                @RenderBody()
-            </div>
+        </div>
+        <div id="contents">
+            @RenderBody()
         </div>
         <div id="footer"></div>
     </div>

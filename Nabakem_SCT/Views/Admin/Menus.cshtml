@@ -15,7 +15,7 @@
         <th>만든날짜</th>
     </tr>
 
-    @*@foreach (var item in @Model)
+    @foreach (var item in @Model)
     {
         <tr data-menu-code="@item.Code">
             <td>@item.Code</td>
@@ -27,7 +27,7 @@
             <td>@item.Modified</td>
             <td>@item.Created</td>
         </tr>
-    }*@
+    }
 </table>
 
 <table id="menus-form">
@@ -62,11 +62,11 @@
 <script>
     $(document).ready(function () {
         var code;
-        $('.tbl_menus_list tr').click(function () {
+        $('.tbl_list tr').click(function () {
             code = $(this).data('menu-code');
 
             $.ajax({
-                url: '/Admin/ManageMenu',
+                url: '/Admin/GetMenu',
                 data: { code: code },
                 success: function (data) {
                     $('#menu-name').val(data.Name);
@@ -110,7 +110,7 @@
         }
         else {
             $.ajax({
-                url: '/Almighty/GetMenus',
+                url: '/Admin/GetMenu',
                 data: { code: parentCode },
                 success: function (parent) {
                     $('#parent-name').val(parent.Name);

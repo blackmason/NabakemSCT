@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Nabakem_SCT.Models.Domains;
+using Nabakem_SCT.Models.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,9 +18,24 @@ namespace Nabakem_SCT.Controllers
             return View();
         }
 
-        public ActionResult Menu()
+        public ActionResult NoticeAdd()
         {
-            return View();
+            return RedirectToAction("Notice/Write", "BBS");
+        }
+
+        public ActionResult Menus()
+        {
+            MenuHelper helper = new MenuHelper();
+            var result = helper.GetAllMenus();
+
+            return View(result);
+        }
+
+        public JsonResult GetMenu(string code)
+        {
+            MenuHelper helper = new MenuHelper();
+            var result = helper.GetMenu(code);
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
     }
 }

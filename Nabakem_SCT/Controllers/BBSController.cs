@@ -11,11 +11,11 @@ namespace Nabakem_SCT.Controllers
         /*
          * 공지사항
          */
-        public ActionResult Notice(string id)
+        public ActionResult Notice(string type, string id)
         {
             string addr = null;
 
-            switch (id)
+            switch (type)
             {
                 case "Write":
                     addr = "Notice/Write";
