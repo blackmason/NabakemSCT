@@ -97,19 +97,27 @@ a, a:hover, a:visited {
     text-decoration: none;
     text-decoration-color: none;
 }
-#main-navi-list li {
+#main-navi-list > li {
     margin: 0 10px;
     padding: 0 10px;
-    display: inline;
+    display: inline-block;
     color: #eee;
 }
 #main-navi-list li > ul {
+    list-style: none;
     display: none;
 }
+#main-navi-list li:hover {
+    background-color: #374885;
+}
 #main-navi-list li:hover .sub_menus {
+    margin: 0 -10px;
     display: block;
-    /*background-color: #213478;*/
-    background-color: red;
+    position: absolute;
+    background-color: #213478;
+}
+.sub_menus > li {
+    padding: 0 20px;
 }
 
 /* 로그인 화면 */

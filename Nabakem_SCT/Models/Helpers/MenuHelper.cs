@@ -13,7 +13,7 @@ namespace Nabakem_SCT.Models.Helpers
         /* 전체메뉴 가져오기 */
         public List<Menus> GetAllMenus()
         {
-            string sql = "SELECT CODE, P_CODE, NAME, URL, ENABLED, ROLE, MODIFIED, CREATED FROM MENUS";
+            string sql = "SELECT CODE, P_CODE, NAME, URL, ENABLED, ROLE, MODIFIED, CREATED FROM MENUS ORDER BY ORDERING, CODE";
 
             SetConnectionString();
             Menus menus;
