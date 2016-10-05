@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace Nabakem_SCT.Controllers
 {
-    public class AdminController : Controller
+    public class AdminController : BaseController
     {
         //
         // GET: /Admin/
@@ -43,6 +43,20 @@ namespace Nabakem_SCT.Controllers
             MenuHelper helper = new MenuHelper();
             var result = helper.GetMenu(code);
             return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        public void UpdateMenu(string code, string name, string parentCode, string url, string role, string enabled)
+        {
+            MenuHelper helper = new MenuHelper();
+            helper.UpdateMenu(code, name, parentCode, url, role, enabled);
+            return;
+        }
+
+        public void AddMenu(string code, string name, string parentCode, string url, string role, string enabled)
+        {
+            MenuHelper helper = new MenuHelper();
+            helper.AddMenu(code, name, parentCode, url, role, enabled);
+            return;
         }
     }
 }

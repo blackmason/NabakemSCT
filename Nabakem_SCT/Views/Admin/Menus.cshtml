@@ -145,7 +145,7 @@
 
         if (btnGb == 'update') {
             $.ajax({
-                url: '/Almighty/UpdateMenu',
+                url: '/Admin/UpdateMenu',
                 data: json,
                 success: function (data) {
                     alert("메뉴수정이 완료되었습니다.");
@@ -158,7 +158,7 @@
         }
         else {
             $.ajax({
-                url: '/Almighty/AddMenu',
+                url: '/Admin/AddMenu',
                 data: json,
                 success: function (data) {
                     alert("메뉴추가가 완료되었습니다.");

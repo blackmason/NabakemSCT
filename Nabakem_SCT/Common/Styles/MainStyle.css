@@ -92,11 +92,24 @@ a, a:hover, a:visited {
     list-style: none;
     font-size: 14px;
 }
+#main-navi-list a {
+    color: #eee;
+    text-decoration: none;
+    text-decoration-color: none;
+}
 #main-navi-list li {
     margin: 0 10px;
     padding: 0 10px;
     display: inline;
     color: #eee;
+}
+#main-navi-list li > ul {
+    display: none;
+}
+#main-navi-list li:hover .sub_menus {
+    display: block;
+    /*background-color: #213478;*/
+    background-color: red;
 }
 
 /* 로그인 화면 */

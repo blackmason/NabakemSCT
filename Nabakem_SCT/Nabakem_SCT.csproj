@@ -114,6 +114,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AuthorizeController.cs" />
+    <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\BBSController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Global.asax.cs">
@@ -427,6 +428,7 @@
     <Content Include="Common\Plugins\DaumEditor\pages\trex\iframe_loader_catalyst_strict.html" />
     <Content Include="Common\Plugins\DaumEditor\pages\trex\image.html" />
     <Content Include="Common\Plugins\DaumEditor\pages\trex\multimedia.html" />
+    <Content Include="Common\Scripts\MenuScript.js" />
     <Content Include="Common\Styles\AdminStyle.css" />
     <Content Include="Common\Styles\BbsStyle.css" />
     <Content Include="Common\Styles\MainStyle.css" />

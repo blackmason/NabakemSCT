@@ -6,7 +6,7 @@
 .tbl_bbs_list tr:hover {background-color: #f0f0f0;}
 .tbl_bbs_list th {height: 30px; background-color: #eee;}
 .tbl_bbs_list th:nth-child(1) {width: 7%}
-.tbl_bbs_list th:nth-child(2) {width: 70%}
+.tbl_bbs_list th:nth-child(2) {width: 70%;}
 .tbl_bbs_list td {height: 35px; text-align: center;}
 .tbl_bbs_list td:nth-child(2) {text-align: left;}
 .bbs_wrapper {margin: 10px auto; width: 95%; text-align:right; /*border: 1px solid red;*/}

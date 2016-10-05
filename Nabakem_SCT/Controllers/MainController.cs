@@ -6,11 +6,8 @@ using System.Web.Mvc;
 
 namespace Nabakem_SCT.Controllers
 {
-    public class MainController : Controller
+    public class MainController : BaseController
     {
-        //
-        // GET: /Main/
-
         public ActionResult Index()
         {
             return View();
