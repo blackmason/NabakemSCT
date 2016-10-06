@@ -9,15 +9,17 @@ namespace Nabakem_SCT.Controllers
 {
     public class BBSController : Controller
     {
+        private BoardHelper helper;
+        private string url;
+
         /*
          * 공지사항
          */
-        public ActionResult Notice(string type, string id)
+        public ActionResult Notice(string mode, string id)
         {
             string addr = null;
-            BoardHelper helper;
 
-            if ("List" == type)
+            if ("List" == mode)
             {
                 addr = "Notice/List";
                 helper = new BoardHelper();
@@ -25,12 +27,12 @@ namespace Nabakem_SCT.Controllers
                 
                 return View(addr, result);
             }
-            else if ("Write" == type)
+            else if ("Write" == mode)
             {
                 addr = "Notice/Write";
                 return View(addr);
             }
-            else if("View" == type && id != null)
+            else if("View" == mode && id != null)
             {
                 addr = "Notice/View/" + id;
                 return View(addr);
@@ -67,6 +69,61 @@ namespace Nabakem_SCT.Controllers
             else
             {
                 return View("Estimate/List");
+            }
+        }
+
+        [ValidateInput(false)]
+        public ActionResult NoticeCRUD(string mode, string id, string subject, string contents, string author)
+        {
+            if ("Write" == mode)
+            {
+                helper = new BoardHelper();
+                int result = helper.NoticeAdd(subject, contents, author);
+
+                if (0 != result)
+                {
+                    return RedirectToAction("Notice/View/" + id, "BBS");
+                }
+                else
+                {
+                    return RedirectToAction("Notice/Write", "BBS");
+                }
+            }
+            //else if ("Edit" == mode)      // 수정모드 업데이트 해야됨.
+            //{
+            //    helper = new BoardHelper();
+
+            //    int result = helper.EditContents(type, id, subject, contents);
+
+            //    if (0 != result)
+            //    {
+            //        url = string.Format("{0}/View/{1}", type, id);
+            //        return RedirectToAction(url, "Customer");
+            //    }
+            //    else
+            //    {
+            //        url = string.Format("{0}/View/{1}", type, id);
+            //        return RedirectToAction(url, "Customer");
+            //    }
+            //}
+            //else if ("Delete" == mode)
+            //{
+            //    helper = new BoardHelper();
+            //    int result = helper.DeleteContents(type, id);
+
+            //    if (0 != result)
+            //    {
+            //        return RedirectToAction(type, "Customer");
+            //    }
+            //    else
+            //    {
+            //        url = string.Format("{0}/View/{1}", type, id);
+            //        return RedirectToAction(url, "Customer");
+            //    }
+            //}
+            else
+            {
+                return RedirectToAction(mode, "BBS");
             }
         }
     }

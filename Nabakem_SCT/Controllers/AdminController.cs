@@ -18,9 +18,9 @@ namespace Nabakem_SCT.Controllers
             return View();
         }
 
-        public ActionResult Notice(string type)
+        public ActionResult Notice(string mode)
         {
-            if ("Write" == type)
+            if ("Write" == mode)
             {
                 return RedirectToAction("Notice/Write","BBS");
             }

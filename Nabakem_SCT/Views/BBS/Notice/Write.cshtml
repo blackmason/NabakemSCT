@@ -7,7 +7,8 @@
 
 <div class="body">
     <!-- 에디터 시작 -->
-    <form name="tx_editor_form" id="tx_editor_form" action="http://posttestserver.com/post.php" method="post" accept-charset="utf-8">
+    <form name="tx_editor_form" id="tx_editor_form" action="/BBS/NoticeCRUD" method="post" accept-charset="utf-8">
+        <input type="hidden" name="mode" value="Write" />
         <table id="tbl-editor-form">
             <tr>
                 <th>제목</th>
@@ -25,9 +26,9 @@
                                 <ul class="tx-bar tx-bar-left tx-nav-attach">
                                     <!-- 이미지 첨부 버튼 시작 -->
                                     <!--
-                                    description
-                                    <li></li> 단위로 위치를 이동할 수 있다.
-                                -->
+                                        description
+                                        <li></li> 단위로 위치를 이동할 수 있다.
+                                    -->
                                     <li class="tx-list">
                                         <div unselectable="on" id="tx_image" class="tx-image tx-btn-trans">
                                             <a href="javascript:;" title="사진" class="tx-text">사진</a>
@@ -50,9 +51,9 @@
                                         </div>
                                         <ul class="tx-extra-menu tx-menu" style="left:-48px;" unselectable="on">
                                             <!--
-                                            description
-                                            일부 버튼들을 빼서 레이어로 숨기는 기능을 원할 경우 이 곳으로 이동시킬 수 있다.
-                                        -->
+                                                description
+                                                일부 버튼들을 빼서 레이어로 숨기는 기능을 원할 경우 이 곳으로 이동시킬 수 있다.
+                                            -->
                                         </ul>
                                     </li>
                                 </ul>
@@ -76,14 +77,14 @@
 
                         <!-- 툴바 - 기본 시작 -->
                         <!--
-                        description
-                        툴바 버튼의 그룹핑의 변경이 필요할 때는 위치(왼쪽, 가운데, 오른쪽) 에 따라 <li> 아래의 <div>의 클래스명을 변경하면 된다.
-                        tx-btn-lbg: 왼쪽, tx-btn-bg: 가운데, tx-btn-rbg: 오른쪽, tx-btn-lrbg: 독립적인 그룹
+                            description
+                            툴바 버튼의 그룹핑의 변경이 필요할 때는 위치(왼쪽, 가운데, 오른쪽) 에 따라 <li> 아래의 <div>의 클래스명을 변경하면 된다.
+                            tx-btn-lbg: 왼쪽, tx-btn-bg: 가운데, tx-btn-rbg: 오른쪽, tx-btn-lrbg: 독립적인 그룹
 
-                        드롭다운 버튼의 크기를 변경하고자 할 경우에는 넓이에 따라 <li> 아래의 <div>의 클래스명을 변경하면 된다.
-                        tx-slt-70bg, tx-slt-59bg, tx-slt-42bg, tx-btn-43lrbg, tx-btn-52lrbg, tx-btn-57lrbg, tx-btn-71lrbg
-                        tx-btn-48lbg, tx-btn-48rbg, tx-btn-30lrbg, tx-btn-46lrbg, tx-btn-67lrbg, tx-btn-49lbg, tx-btn-58bg, tx-btn-46bg, tx-btn-49rbg
-                    -->
+                            드롭다운 버튼의 크기를 변경하고자 할 경우에는 넓이에 따라 <li> 아래의 <div>의 클래스명을 변경하면 된다.
+                            tx-slt-70bg, tx-slt-59bg, tx-slt-42bg, tx-btn-43lrbg, tx-btn-52lrbg, tx-btn-57lrbg, tx-btn-71lrbg
+                            tx-btn-48lbg, tx-btn-48rbg, tx-btn-30lrbg, tx-btn-46lrbg, tx-btn-67lrbg, tx-btn-49lbg, tx-btn-58bg, tx-btn-46bg, tx-btn-49rbg
+                        -->
                         <div id="tx_toolbar_basic" class="tx-toolbar tx-toolbar-basic">
                             <div class="tx-toolbar-boundary">
                                 <ul class="tx-bar tx-bar-left">
@@ -536,7 +537,7 @@
 
         // 본문 내용을 필드를 생성하여 값을 할당하는 부분
         var textarea = document.createElement('textarea');
-        textarea.name = 'content';
+        textarea.name = 'contents';
         textarea.value = content;
         form.createField(textarea);
 
