@@ -3,17 +3,13 @@
     Layout = "~/Views/_Layouts/MainLayout.cshtml";
 }
 
-<h3>공지사항</h3>
-<div class="bbs_wrapper">
-    @*<a href="/Customer/Notice/Write"><span class="btn_bbs_span">Write</span></a>*@
-</div>
-
 <table class="tbl_bbs_list">
     <tr>
         <th>No</th>
         <th>제목</th>
         <th>작성자</th>
         <th>작성날짜</th>
+        <th>조회수</th>
     </tr>
 
     @foreach (var item in Model)
@@ -26,25 +22,19 @@
         {
             <tr>
                 <td>@item.No</td>
-                <td><a href="/Customer/Notice/View/@item.No">@item.Subject</a></td>
+                <td><a href="/BBS/Notice/Detail/@item.No">@item.Subject</a></td>
                 <td>@item.Author</td>
                 <td>@item.Created</td>
+                <td>@item.Hit</td>
             </tr>
         }
     }
 </table>
-
-<div class="bbs_wrapper">
-    <div class="search_area">
-        <input type="text" name="searchKey" class="search_key" />
-        <input type="button" class="btn_search" value="검색" />
-    </div>
-    @*<a href="/BBS/Notice/Write"><span class="btn_bbs_span">Write</span></a>*@
+<div class="bbs_search_area">
+    <input type="text" class="txt_bbs_search" name="searchKey" />
+    <input type="button" class="btn_bbs_search" value="검색" />
 </div>
-<br />
-<div class="bbs_wrapper">
-    <div class="page_area">[1][2][3][4]</div>
-</div>
+<div class="bbs_page_area">[1][2][3][4]</div>
 <script>
     var msg = '@TempData["msg"]';
     if (msg) {

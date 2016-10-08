@@ -35,6 +35,7 @@ namespace Nabakem_SCT.Models.Helpers
                     bbs.Subject = reader[3].ToString();
                     bbs.Author = reader[4].ToString();
                     bbs.Created = reader[5].ToString();
+                    bbs.Hit = reader[6].ToString();
                     bbsList.Add(bbs);
                 }
                 connection.Close();
@@ -43,32 +44,23 @@ namespace Nabakem_SCT.Models.Helpers
             return bbsList;
         }
 
-        // 게시물 입력
-        public int NoticeAdd(string subject, string contents, string author)
-        {
-            //string revContents = contents.Replace("'", "''");
-
-            string sql = string.Format("INSERT INTO BBS_NOTICE (SUBJECT, CONTENTS, AUTHOR) VALUES ('{0}','{1}','{2}')", subject, contents, author);
-
-            int result;
-            SetConnectionString();
-            using (connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                command = new SqlCommand(sql, connection);
-                result = command.ExecuteNonQuery();
-                connection.Close();
-            }
-
-            return result;
-        }
-
         // 게시물 보기
-        public Board GetContents(string id)
+        public Board GetContent(string bbsId, string id)
         {
-            //string sql = string.Format("SELECT SUBJECT, CONTENTS, AUTHOR, LEFT(CONVERT(CHAR(19), CREATED, 120), 16), VISIT FROM BBS_NOTICE WHERE NO = {0}", id);
-            // 어떤 bbs 타입인지 인자로 구분하고, 프로시저 실행 할 것.
-            string sql = "NOTICE_VIEW_USP";
+            string sql = null;
+
+            switch (bbsId)
+            {
+                case "BBS_NOTICE":
+                    sql = "NOTICE_DETAIL_USP";
+                    break;
+                case "BBS_QNA":
+                    sql = "QNA_DETAIL_USP";
+                    break;
+                case "BBS_ESTIMATE":
+                    sql = "ESTIMATE_DETAIL_USP";
+                    break;
+            }
 
             SetConnectionString();
             Board bbs = new Board();
@@ -87,7 +79,7 @@ namespace Nabakem_SCT.Models.Helpers
                     bbs.Contents = reader[2].ToString();
                     bbs.Author = reader[3].ToString();
                     bbs.Created = reader[4].ToString();
-                    bbs.Visit = reader[5].ToString();
+                    bbs.Hit = reader[5].ToString();
                 }
                 connection.Close();
             }
@@ -95,11 +87,11 @@ namespace Nabakem_SCT.Models.Helpers
             return bbs;
         }
 
-        // 게시물 삭제
-        public int DeleteContents(string bbsId, string id)
+        // 게시물 입력
+        public int ContentAdd(string bbsId, string subject, string contents, string author)
         {
-            string tblName = ReturnTblName(bbsId);
-            string sql = string.Format("DELETE FROM {0} WHERE SEQ = {1}", tblName, id);
+            //string revContents = contents.Replace("'", "''");
+            string sql = string.Format("INSERT INTO {0} (SUBJECT, CONTENTS, AUTHOR) VALUES ('{1}','{2}','{3}')", bbsId, subject, contents, author);
 
             int result;
             SetConnectionString();
@@ -114,7 +106,7 @@ namespace Nabakem_SCT.Models.Helpers
             return result;
         }
 
-        public int EditContents(string bbsId, string id, string subject, string contents)         //업데이트문으로 교체
+        public int ContentEdit(string bbsId, string id, string subject, string contents)         //업데이트문으로 교체
         {
             string tblName = ReturnTblName(bbsId);
             string sql = string.Format("UPDATE {0} SET SUBJECT = '{1}', CONTENTS = '{2}' WHERE SEQ = '{3}'", tblName, subject, contents, id);
@@ -122,6 +114,25 @@ namespace Nabakem_SCT.Models.Helpers
 
             int result;
             Board bbs = new Board();
+            SetConnectionString();
+            using (connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                command = new SqlCommand(sql, connection);
+                result = command.ExecuteNonQuery();
+                connection.Close();
+            }
+
+            return result;
+        }
+
+        // 게시물 삭제
+        public int DeleteContents(string bbsId, string id)
+        {
+            string tblName = ReturnTblName(bbsId);
+            string sql = string.Format("DELETE FROM {0} WHERE SEQ = {1}", tblName, id);
+
+            int result;
             SetConnectionString();
             using (connection = new SqlConnection(connectionString))
             {
@@ -175,6 +186,5 @@ namespace Nabakem_SCT.Models.Helpers
                 return "BBS_NOTICE";
             }
         }
-
     }
 }

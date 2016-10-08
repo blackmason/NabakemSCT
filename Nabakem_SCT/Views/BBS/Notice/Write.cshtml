@@ -7,9 +7,9 @@
 
 <div class="body">
     <!-- 에디터 시작 -->
-    <form name="tx_editor_form" id="tx_editor_form" action="/BBS/NoticeCRUD" method="post" accept-charset="utf-8">
-        <input type="hidden" name="mode" value="Write" />
-        <table id="tbl-editor-form">
+    <form name="tx_editor_form" id="tx_editor_form" action="/BBS/OnSubmit" method="post" accept-charset="utf-8">
+        <input type="hidden" name="bbsId" value="BBS_NOTICE" />
+        <table class="tbl_editor_form">
             <tr>
                 <th>제목</th>
                 <td><input type="text" class="tx_subject" name="subject" /></td>

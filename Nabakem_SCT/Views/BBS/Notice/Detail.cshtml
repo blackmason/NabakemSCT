@@ -4,10 +4,9 @@
 }
 
 <h2>Detail</h2>
-<h3>@ViewBag.Title</h3>
 
-<div class="bbs_wrapper">
-    <a href="/Customer/Notice"><span class="btn_bbs_span">목록</span></a>
+<div class="btn_bbs_area">
+    <a href="/BBS/Notice/List"><span class="btn_bbs_span">목록</span></a>
 </div>
 <table class="tbl_bbs">
     <tr>
@@ -20,17 +19,17 @@
         <th>제목</th>
         <td class="td_contents"><span>@Model.Subject</span></td>
         <th>조회수</th>
-        <td class="td_contents"><span>@Model.Visit</span></td>
+        <td class="td_contents"><span>@Model.Hit</span></td>
     </tr>
     <tr>
         <td colspan="4" class="td_contents"><span class="contents_body">@Html.Raw(@Model.Contents)</span></td>
     </tr>
 </table>
 
-<div class="bbs_wrapper">
-    <a href="/Customer/Notice"><span class="btn_bbs_span">목록</span></a>
-    <a href="/Customer/Notice/Edit/@Model.No"><span class="btn_bbs_span">수정</span></a>
-    <a href="/Customer/Notice/Delete/@Model.No"><span class="btn_bbs_span btn_delete">삭제</span></a>
+<div class="btn_bbs_area">
+    <a href="/BBS/Notice/List"><span class="btn_bbs_span">목록</span></a>
+    @*<a href="/BBS/Notice/Edit/@Model.No"><span class="btn_bbs_span">수정</span></a>
+    <a href="/BBS/Notice/Delete/@Model.No"><span class="btn_bbs_span btn_delete">삭제</span></a>*@
 </div>
 <script>
     $(document).ready(function () {

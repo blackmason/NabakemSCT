@@ -9,24 +9,27 @@
 .tbl_bbs_list th:nth-child(2) {width: 70%;}
 .tbl_bbs_list td {height: 35px; text-align: center;}
 .tbl_bbs_list td:nth-child(2) {text-align: left;}
-.bbs_wrapper {margin: 10px auto; width: 95%; text-align:right; /*border: 1px solid red;*/}
-.btn_bbs_span {padding: 5px 10px; color: black; text-decoration: none; background-color: #eee; border:1px solid #ccc;}
 td a {color: black; text-decoration: none;}
 td a:visited {color: black; text-decoration: none;}
-.search_key {padding: 5px 3px; width:250px;}
-.btn_search {padding: 5px 10px; background-color:#eee; border: 1px solid #ccc;}
-.bbs_wrapper .search_area {float:left; display:inline-block;}
-.bbs_wrapper .page_area {margin:10px; text-align: center;}
+.bbs_search_area {margin: 10px auto; width:95%; height:40px; line-height: 40px;}
+.txt_bbs_search {padding: 5px 3px; width:250px; }
+.btn_bbs_search {padding: 5px 10px; background-color:#eee; border: 1px solid #ccc; vertical-align: middle;}
+.bbs_page_area {margin: 10px auto; width: 95%; text-align: center;}
 
 /* Detail */
-.tbl_bbs {margin:20px auto; width: 95%; border: 1px solid #ccc; border-collapse:collapse;}
+.tbl_bbs {margin:20px auto; width: 95%; border: 1px solid #ccc; border-collapse:collapse; font-size: 13px;}
 .tbl_bbs tr {border: 1px solid #ccc;}
-.tbl_bbs th {width: 10%; height:25px; background-color: #f0f0f0;}
+.tbl_bbs th {width: 100px; height:25px; background-color: #f0f0f0;}
 .td_contents {padding: 10px 10px;}
-.td_contents:nth-child(4) {width: 100px; text-align:center;}
+.td_contents:nth-child(4) {width: 120px; text-align:center;}
 .contents_body {padding: 10px 20px; min-height: 500px; display: block; overflow-x: auto;}
+.btn_bbs_area {margin: 0 auto; width: 95%; text-align: right; vertical-align: middle;}
+.btn_bbs_span {padding: 3px 10px; width: 30px; font-size: 13px; color: black; text-decoration: none; background-color: #eee; border:1px solid #ccc;}
 
 /* Write */
-#tbl-editor-form {width: 100%;}
-#tbl-editor-form th {width: 50px;}
-.bbs_subject {width: 100%; height: 23px;}
+.tbl_editor_form {margin:20px auto;width:95%;border:1px solid #ccc;border-collapse:collapse;}
+.tbl_editor_form tr {border: 1px solid #ccc;}
+.tbl_editor_form td {padding:10px;text-align:center;}
+.tbl_editor_form th {width: 100px; background-color: #f0f0f0;}
+.btn_group {margin:auto;width:95%;text-align:center;}
+.btn_confirm {padding:5px 10px;border:1px solid #ccc;}

@@ -13,16 +13,19 @@ namespace Nabakem_SCT.Controllers
         private string url;
 
         /*
+         * 뷰 액션
          * 공지사항
+         * 요청모드, 글번호
          */
         public ActionResult Notice(string mode, string id)
         {
+            string bbsId = "BBS_NOTICE";
             string addr = null;
+            helper = new BoardHelper();
 
             if ("List" == mode)
             {
                 addr = "Notice/List";
-                helper = new BoardHelper();
                 var result = helper.GetAllContents();
                 
                 return View(addr, result);
@@ -32,19 +35,19 @@ namespace Nabakem_SCT.Controllers
                 addr = "Notice/Write";
                 return View(addr);
             }
-            else if("View" == mode && id != null)
+            else if("Detail" == mode && id != null)
             {
-                addr = "Notice/View/" + id;
-                return View(addr);
+                var result = helper.GetContent(bbsId, id);
+                addr = "Notice/Detail";
+                return View(addr, result);
             }
             else
             {
                 return View("Error");
             }
         }
-        /*
-         * 제품문의
-         */
+        
+        //제품문의
         public ActionResult QnA(string id)
         {
             if (id != null && id != "")
@@ -57,9 +60,7 @@ namespace Nabakem_SCT.Controllers
             }
         }
 
-        /*
-         * 견적요청
-         */
+        //견적요청
         public ActionResult Estimate(string id)
         {
             if (id != null && id != "")
@@ -72,58 +73,48 @@ namespace Nabakem_SCT.Controllers
             }
         }
 
+        /*
+         * 데이터액션
+         * 글 등록
+         * 보드아이디, 제목, 내용, 작성자
+         */
         [ValidateInput(false)]
-        public ActionResult NoticeCRUD(string mode, string id, string subject, string contents, string author)
+        public ActionResult OnSubmit(string bbsId, string subject, string contents, string author)
         {
-            if ("Write" == mode)
+            helper = new BoardHelper();
+            int result = helper.ContentAdd(bbsId, subject, contents, author);
+
+            if (0 != result)
             {
-                helper = new BoardHelper();
-                int result = helper.NoticeAdd(subject, contents, author);
-
-                if (0 != result)
-                {
-                    return RedirectToAction("Notice/View/" + id, "BBS");
-                }
-                else
-                {
-                    return RedirectToAction("Notice/Write", "BBS");
-                }
+                return RedirectToAction("Notice/List", "BBS");
             }
-            //else if ("Edit" == mode)      // 수정모드 업데이트 해야됨.
-            //{
-            //    helper = new BoardHelper();
-
-            //    int result = helper.EditContents(type, id, subject, contents);
-
-            //    if (0 != result)
-            //    {
-            //        url = string.Format("{0}/View/{1}", type, id);
-            //        return RedirectToAction(url, "Customer");
-            //    }
-            //    else
-            //    {
-            //        url = string.Format("{0}/View/{1}", type, id);
-            //        return RedirectToAction(url, "Customer");
-            //    }
-            //}
-            //else if ("Delete" == mode)
-            //{
-            //    helper = new BoardHelper();
-            //    int result = helper.DeleteContents(type, id);
-
-            //    if (0 != result)
-            //    {
-            //        return RedirectToAction(type, "Customer");
-            //    }
-            //    else
-            //    {
-            //        url = string.Format("{0}/View/{1}", type, id);
-            //        return RedirectToAction(url, "Customer");
-            //    }
-            //}
             else
             {
-                return RedirectToAction(mode, "BBS");
+                return RedirectToAction("Notice/Write", "BBS");
+            }
+        }
+
+        /*
+         * 데이터액션
+         * 글 수정
+         * 보드아이디, 글번호, 제목, 내용
+         */
+        [ValidateInput(false)]
+        public ActionResult Edit(string bbsId, string id, string subject, string contents)
+        {
+            helper = new BoardHelper();
+
+            int result = helper.ContentEdit(bbsId, id, subject, contents);
+
+            if (0 != result)
+            {
+                url = string.Format("{0}/View/{1}", id);
+                return RedirectToAction(url, "Customer");
+            }
+            else
+            {
+                url = string.Format("{0}/View/{1}", id);
+                return RedirectToAction(url, "Customer");
             }
         }
     }
