@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "ArticleAll";
+    Layout = "~/Views/_Layouts/AdminLayout.cshtml";
+}
+
+<h2>ArticleAll</h2>
+<h3>클래스를 사용하되, 공통으로 사용하는 디자인적인 부분만 사용하고, 나머지는 id 부여 후 개별적으로 사용</h3>
+<table class="tbl_list">
+    <tr>
+        <th>구분</th>
+        <th>카테고리</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회수</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Bbs</td>
+            <td>@item.Category</td>
+            <td>@item.Subject</td>
+            <td>@item.Author</td>
+            <td>@item.InsertDate</td>
+            <td>@item.Hit</td>
+        </tr>
+    }
+</table>

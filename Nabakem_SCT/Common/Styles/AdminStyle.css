@@ -74,6 +74,7 @@ a {
     margin: 0 -10px;
     display: block;
     position: absolute;
+    z-index: 100;
     background-color: #213478;
 }
 .sub_menus > li {

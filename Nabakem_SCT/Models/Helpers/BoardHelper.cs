@@ -34,7 +34,7 @@ namespace Nabakem_SCT.Models.Helpers
                     bbs.Fixed = reader[2].ToString();
                     bbs.Subject = reader[3].ToString();
                     bbs.Author = reader[4].ToString();
-                    bbs.Created = reader[5].ToString();
+                    bbs.InsertDate = reader[5].ToString();
                     bbs.Hit = reader[6].ToString();
                     bbsList.Add(bbs);
                 }
@@ -78,7 +78,7 @@ namespace Nabakem_SCT.Models.Helpers
                     bbs.Subject = reader[1].ToString();
                     bbs.Contents = reader[2].ToString();
                     bbs.Author = reader[3].ToString();
-                    bbs.Created = reader[4].ToString();
+                    bbs.InsertDate = reader[4].ToString();
                     bbs.Hit = reader[5].ToString();
                 }
                 connection.Close();
@@ -145,32 +145,32 @@ namespace Nabakem_SCT.Models.Helpers
             return result;
         }
 
-        public List<Board> SummaryData(string bbsId)
-        {
-            string tblName = ReturnTblName(bbsId);
-            string sql = string.Format("SELECT TOP 5 SUBJECT, CONVERT(CHAR(10), CREATED, 120) FROM {0} ORDER BY CREATED DESC", tblName);
+        //public List<Board> SummaryData(string bbsId)
+        //{
+        //    string tblName = ReturnTblName(bbsId);
+        //    string sql = string.Format("SELECT TOP 5 SUBJECT, CONVERT(CHAR(10), CREATED, 120) FROM {0} ORDER BY CREATED DESC", tblName);
 
-            List<Board> bbsList = new List<Board>();
-            Board bbs;
-            SetConnectionString();
-            using (connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                command = new SqlCommand(sql, connection);
-                reader = command.ExecuteReader();
+        //    List<Board> bbsList = new List<Board>();
+        //    Board bbs;
+        //    SetConnectionString();
+        //    using (connection = new SqlConnection(connectionString))
+        //    {
+        //        connection.Open();
+        //        command = new SqlCommand(sql, connection);
+        //        reader = command.ExecuteReader();
 
-                while (reader.Read())
-                {
-                    bbs = new Board();
-                    bbs.Subject = reader[0].ToString();
-                    bbs.Created = reader[1].ToString();
-                    bbsList.Add(bbs);
-                }
-                connection.Close();
-            }
+        //        while (reader.Read())
+        //        {
+        //            bbs = new Board();
+        //            bbs.Subject = reader[0].ToString();
+        //            bbs.InsertDate = reader[1].ToString();
+        //            bbsList.Add(bbs);
+        //        }
+        //        connection.Close();
+        //    }
 
-            return bbsList;
-        }
+        //    return bbsList;
+        //}
 
         public string ReturnTblName(string bbsId)
         {
@@ -185,6 +185,37 @@ namespace Nabakem_SCT.Models.Helpers
             {
                 return "BBS_NOTICE";
             }
+        }
+
+        public List<Board> GetAllArticle()
+        {
+            string sql = "ARTICLE_ALL_USP";
+
+            Board board;
+            List<Board> bbsList = new List<Board>();
+            SetConnectionString();
+            using (connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                command = new SqlCommand(sql, connection);
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    board = new Board();
+                    board.Bbs = reader[0].ToString();
+                    board.Category = reader[1].ToString();
+                    board.Subject = reader[2].ToString();
+                    board.Contents = reader[3].ToString();
+                    board.Author = reader[4].ToString();
+                    board.InsertDate = reader[5].ToString();
+                    board.Hit = reader[6].ToString();
+                    bbsList.Add(board);
+                }
+                connection.Close();
+            }
+
+            return bbsList;
         }
     }
 }
