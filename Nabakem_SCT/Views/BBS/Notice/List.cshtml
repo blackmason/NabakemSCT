@@ -3,7 +3,7 @@
     Layout = "~/Views/_Layouts/MainLayout.cshtml";
 }
 
-<table class="tbl_bbs_list">
+<table id="notice-list" class="tbl_bbs_list">
     <tr>
         <th>No</th>
         <th>제목</th>
@@ -24,7 +24,7 @@
                 <td>@item.No</td>
                 <td><a href="/BBS/Notice/Detail/@item.No">@item.Subject</a></td>
                 <td>@item.Author</td>
-                <td>@item.Created</td>
+                <td>@item.InsertDate</td>
                 <td>@item.Hit</td>
             </tr>
         }
