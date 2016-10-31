@@ -18,17 +18,11 @@ namespace Nabakem_SCT.Controllers
             return View();
         }
 
-        public ActionResult Notice(string mode)
+        public ActionResult ProductAdd()
         {
-            if ("Write" == mode)
-            {
-                return RedirectToAction("Notice/Write","BBS");
-            }
-            else
-            {
-                return RedirectToAction("Notice/List","BBS");
-            }
+            return View();
         }
+        
 
         /*
          * 메뉴관리
@@ -87,6 +81,23 @@ namespace Nabakem_SCT.Controllers
             BoardHelper helper = new BoardHelper();
             var result = helper.GetAllArticle();
             return View("ArticleAll", result);
+        }
+
+        /*
+         * 공지사항
+         * 공지사항 추가
+         * 모드
+         */
+        public ActionResult Notice(string mode)
+        {
+            if ("Write" == mode)
+            {
+                return RedirectToAction("Notice/Write", "BBS");
+            }
+            else
+            {
+                return RedirectToAction("Notice/List", "BBS");
+            }
         }
     }
 }

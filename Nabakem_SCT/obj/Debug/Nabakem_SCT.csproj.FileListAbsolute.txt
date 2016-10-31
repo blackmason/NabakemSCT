@@ -27,9 +27,7 @@ E:\Source\VS_Workspace\Nabakem_SCT\Nabakem_SCT\bin\System.Web.Razor.xml
 E:\Source\VS_Workspace\Nabakem_SCT\Nabakem_SCT\bin\System.Web.WebPages.xml
 E:\Source\VS_Workspace\Nabakem_SCT\Nabakem_SCT\bin\System.Web.WebPages.Deployment.xml
 E:\Source\VS_Workspace\Nabakem_SCT\Nabakem_SCT\bin\System.Web.WebPages.Razor.xml
-E:\Source\VS_Workspace\Nabakem_SCT\Nabakem_SCT\bin\ko\System.Net.Http.resources.dll
 E:\Source\VS_Workspace\Nabakem_SCT\Nabakem_SCT\bin\ko\System.Net.Http.Formatting.resources.dll
-E:\Source\VS_Workspace\Nabakem_SCT\Nabakem_SCT\bin\ko\System.Net.Http.WebRequest.resources.dll
 E:\Source\VS_Workspace\Nabakem_SCT\Nabakem_SCT\bin\ko\System.Web.Helpers.resources.dll
 E:\Source\VS_Workspace\Nabakem_SCT\Nabakem_SCT\bin\ko\System.Web.Http.resources.dll
 E:\Source\VS_Workspace\Nabakem_SCT\Nabakem_SCT\bin\ko\System.Web.Http.WebHost.resources.dll
