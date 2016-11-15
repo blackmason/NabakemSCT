@@ -231,6 +231,49 @@ a {
     width: 90px;
     text-align: center;
 }
-#products-summary {
 
+/* 제품관리 */
+.tbl_prod_form {
+    margin: 20px;
+    width: 100%;
+    border-collapse: collapse;
+}
+.tbl_prod_form tr{
+    border: 1px solid #ccc;
+    border-left: none;
+    border-right: none;
+}
+.th_label{
+    background-color: #eee;
+}
+.td_body {
+    padding: 10px 10px;
+}
+.form_prod_input {
+    height: 1.5em;
+}
+.picture_label {
+    display: block;
+    text-align: center;
+}
+.picture_area {
+    width: 120px;
+    height: 150px;
+    display: inline-block;
+    border: 2px solid #ccc;
+}
+#image-attach {
+    list-style:none;
+}
+#image-attach li {
+    display: inline-block;
+    text-align: center;
+    /*border: 1px solid red;*/
+}
+.btn_area {
+    width: 200px;
+    display: block;
+}
+.btn_file_add {
+    width: 200px;
 }
